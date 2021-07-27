@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Textures/UI/9part.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Marlboro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/ConversationBox.gd" type="Script" id=3]
+[ext_resource path="res://Textures/UI/cursor.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 85
+font_data = ExtResource( 2 )
+
+[node name="ConversationBox" type="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -600.0
+margin_right = 512.0
+rect_pivot_offset = Vector2( -542.972, -21.5998 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PicturePanel" type="NinePatchRect" parent="."]
+margin_left = 70.0
+margin_top = 350.0
+margin_right = 670.0
+margin_bottom = 950.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+patch_margin_left = 300
+patch_margin_top = 300
+patch_margin_right = 300
+patch_margin_bottom = 300
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PicturePanel"]
+margin_left = 57.9939
+margin_right = 657.994
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPanel" type="NinePatchRect" parent="."]
+margin_left = 320.0
+margin_top = 350.0
+margin_right = 2433.0
+margin_bottom = 950.0
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+patch_margin_left = 300
+patch_margin_top = 300
+patch_margin_right = 300
+patch_margin_bottom = 300
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Subject" type="RichTextLabel" parent="TextPanel"]
+margin_left = 80.0
+margin_top = 53.0
+margin_right = 1871.0
+margin_bottom = 157.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.509804, 0.309804, 0.188235, 1 )
+text = "SUBJECT LINE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="RichTextLabel" parent="TextPanel"]
+margin_left = 178.0
+margin_top = 185.0
+margin_right = 2011.0
+margin_bottom = 526.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.509804, 0.309804, 0.188235, 1 )
+text = "Random fucking text here
+More text here
+More text
+More text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" type="Sprite" parent="TextPanel"]
+position = Vector2( 110, 215 )
+scale = Vector2( 0.533585, 0.548676 )
+texture = ExtResource( 4 )

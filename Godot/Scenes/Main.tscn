@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Gunslinger.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/Block.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/SimpleNPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/DialogueTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/BasicRobot.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 116.178, 36.0854 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Gunslinger" parent="." instance=ExtResource( 1 )]
+position = Vector2( 430.186, 288.907 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 468.613, 539.885 )
+scale = Vector2( 18.1842, 0.585942 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 0.176779, 1.23742 )
+scale = Vector2( 11.5889, 3.66933 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 428.418, 458.795 )
+scale = Vector2( 0.354267, 1.57777 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( 0.176779, 1.23742 )
+scale = Vector2( 11.5889, 3.66933 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 1346.59, 463.285 )
+scale = Vector2( 0.354267, 1.57777 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 0.176779, 1.23742 )
+scale = Vector2( 11.5889, 3.66933 )
+texture = ExtResource( 2 )
+
+[node name="DialogueTree" parent="." instance=ExtResource( 4 )]
+
+[node name="SimpleNPC" parent="." instance=ExtResource( 3 )]
+position = Vector2( 898.544, 295.632 )
+scale = Vector2( 0.2, 0.2 )
+textures_dir = "res://Textures/Sheriff/"
+
+[node name="SimpleNPC2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 161.377, 367.383 )
+scale = Vector2( 0.2, 0.2 )
+textures_dir = "res://Textures/Gunslinger/"
+
+[node name="BasicRobot" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1820.63, 42.8373 )
+scale = Vector2( 0.2, 0.2 )

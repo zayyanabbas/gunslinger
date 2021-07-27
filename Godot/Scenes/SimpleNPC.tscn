@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/ping.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/SimpleNPC.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 289.372, 415.382 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 799.304, 655.379 )
+
+[node name="SimpleNPC" type="KinematicBody2D" groups=[
+"friendlynpc",
+]]
+show_behind_parent = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6.10352e-05, 28.0616 )
+shape = SubResource( 1 )
+
+[node name="Sprites" type="Sprite" parent="."]
+
+[node name="Torso" type="Sprite" parent="Sprites"]
+
+[node name="LegR" type="Sprite" parent="Sprites"]
+position = Vector2( -76.1953, 365.102 )
+
+[node name="ArmR" type="Sprite" parent="Sprites"]
+position = Vector2( -188.901, 214.072 )
+
+[node name="LegL" type="Sprite" parent="Sprites"]
+show_behind_parent = true
+position = Vector2( 103.181, 358.753 )
+
+[node name="ArmL" type="Sprite" parent="Sprites"]
+show_behind_parent = true
+position = Vector2( 195.998, 210.252 )
+
+[node name="Ping" type="Sprite" parent="Sprites"]
+visible = false
+position = Vector2( 6.10352e-05, -484.089 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+
+[node name="ConvBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConvBox"]
+position = Vector2( 18.4826, 3.36359 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="ConvBox" to="." method="_on_ConvBox_body_entered"]
+[connection signal="body_exited" from="ConvBox" to="." method="_on_ConvBox_body_exited"]
